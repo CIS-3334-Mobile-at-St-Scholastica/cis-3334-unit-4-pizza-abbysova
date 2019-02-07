@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements updateViewInterface {
 
+    private static final Object PizzaOrderInterface = PizzaSystem;
     RadioButton rbSmall;
     RadioButton rbMedium;
     RadioButton rbLarge;
@@ -20,12 +21,13 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     TextView txtStatus;
     TextView txtPizzasOrdered;
     Spinner spinnerToppings;
+    TextView price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        PizzaOrderInterface = new PizzaSystem;
         // Set up our radio buttons
         rbSmall = (RadioButton) findViewById(R.id.radioButtonSmall);
         rbMedium = (RadioButton) findViewById(R.id.radioButtonMedium);
@@ -41,9 +43,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
         txtPizzasOrdered = (TextView) findViewById(R.id.textViewPizzasOrdered);
         // Set up the Spinner
         spinnerToppings = (Spinner) findViewById(R.id.spinnerToppings);
-
-    }
-
+       rbSmall.setText("Price $" +price);}
     @Override
     public void updateOrderStatusInView(String orderStatus) {
 
