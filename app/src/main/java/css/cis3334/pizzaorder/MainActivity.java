@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements updateViewInterface {
 
-    private static final Object PizzaOrderInterface = PizzaSystem;
+    PizzaOrderInterface PizzaSystem;
     RadioButton rbSmall;
     RadioButton rbMedium;
     RadioButton rbLarge;
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        PizzaOrderInterface = new PizzaSystem;
+        PizzaSystem = new PizzaOrder(this);
         // Set up our radio buttons
         rbSmall = (RadioButton) findViewById(R.id.radioButtonSmall);
         rbMedium = (RadioButton) findViewById(R.id.radioButtonMedium);
@@ -51,10 +51,10 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     }
 
     public void onClickOrder(View view) {
-        // ****** For the Assignment, students need to add code here to get information from the UI widgets...
 
         String orderDescription = "No orders yet";
-
+        orderDescription = PizzaSystem.OrderPizza("Peperoni","large", false);
+        txtPizzasOrdered.setText(orderDescription);
         // ****** For the Practice Activity, students need to call to OrderPizza here
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
 
