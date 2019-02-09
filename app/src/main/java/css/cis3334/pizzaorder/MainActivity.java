@@ -53,15 +53,44 @@ public class MainActivity extends AppCompatActivity implements updateViewInterfa
     public void onClickOrder(View view) {
 
         String orderDescription = "No orders yet";
-        orderDescription = PizzaSystem.OrderPizza("Peperoni","large", false);
+        private String sizePizza
+        private boolean extraCheese
+        orderDescription = PizzaSystem.OrderPizza("Peperoni", sizePizza(), extraCheese());
         txtPizzasOrdered.setText(orderDescription);
         // ****** For the Practice Activity, students need to call to OrderPizza here
         // ****** For the Assignment, students will modify the order to fit the type of pizza the user selects using the UI widgets
 
         //display a pop up message for a long period of time
-        Toast.makeText(getApplicationContext(), "You have ordered a "+orderDescription , Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "You have ordered a " + orderDescription, Toast.LENGTH_LONG).show();
         // add this pizza to the textview the lists the pizzas
-        txtPizzasOrdered.append(orderDescription+"\n");
+        txtPizzasOrdered.append(orderDescription + "\n");
 
+
+
+
+    }
+
+    private boolean extraCheese() {
+        boolean cheese;
+        if (chkbxCheese.isChecked()) {
+            cheese = true;
+        } else {
+            cheese = false;
+        }
+
+        return cheese;
+    }
+
+
+    private String sizePizza() {
+        String strSize;
+        if (rbLarge.isChecked()) {
+            strSize = "Large";
+        } else if (rbMedium.isChecked()) {
+            strSize = "Medium";
+        } else {
+            strSize = "Small";
+        }
+        return strSize;
     }
 }
