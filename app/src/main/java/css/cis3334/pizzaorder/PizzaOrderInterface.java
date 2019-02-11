@@ -12,4 +12,5 @@ public interface PizzaOrderInterface {
     void setDelivery(boolean deliver);
     boolean getDelivery();
 
+
 }
